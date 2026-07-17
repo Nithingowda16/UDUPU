@@ -1,0 +1,30 @@
+# Dependencies
+frontend/node_modules/
+node_modules/
+
+# Local databases
+backend/instance/
+instance/
+*.db
+
+# Python files
+__pycache__/
+backend/__pycache__/
+*.pyc
+backend/*.pyc
+.venv/
+venv/
+
+# Uploaded and generated user media files
+uploads/
+generated/
+
+# Environment configurations
+.env
+.env.local
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
