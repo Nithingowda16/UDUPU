@@ -85,7 +85,3 @@ Try-on/
    npm run dev
    ```
 3. Open browser to `http://localhost:3000`.
-
-### Developer Logins
-- **Admin account**: Email `admin@smartfashion.com` | Password `admin123`
-- **User account**: Registrations are available on the client form.
