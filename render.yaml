@@ -3,6 +3,7 @@ services:
   - type: web
     name: udupu-backend
     env: python
+    plan: free
     buildCommand: pip install -r backend/requirements.txt
     startCommand: gunicorn --bind 0.0.0.0:$PORT --chdir backend "app:create_app()"
     envVars:
@@ -17,6 +18,7 @@ services:
   - type: web
     name: udupu-frontend
     env: static
+    plan: free
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist
     envVars:
