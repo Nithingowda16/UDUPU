@@ -513,7 +513,7 @@ export default function Admin() {
                     {productsList.map((prod) => (
                       <tr key={prod.id} className="hover:bg-black/[0.01]">
                         <td className="p-3 flex items-center gap-2">
-                          <img src={prod.image_url} alt="thumbnail" className="h-8 w-8 rounded object-cover" />
+                          <img src={window.getMediaUrl(prod.image_url)} alt="thumbnail" className="h-8 w-8 rounded object-cover" />
                           <span className="font-semibold leading-none">{prod.name}</span>
                         </td>
                         <td className="p-3">{prod.gender}</td>

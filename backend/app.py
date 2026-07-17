@@ -13,7 +13,7 @@ def create_app():
     app.config.from_object(Config)
     
     # Enable CORS for frontend integration
-    CORS(app, resources={r"/api/*": {"origins": "*"}})
+    CORS(app, resources={r"/*": {"origins": "*"}})
     
     # Initialize DB and JWT
     db.init_app(app)

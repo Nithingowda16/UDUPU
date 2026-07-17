@@ -247,7 +247,7 @@ export default function Dashboard() {
                       className="p-4 rounded-2xl bg-white dark:bg-[#1b1b1c] border border-apple-border-light dark:border-apple-border-dark flex gap-4 hover:shadow-premium transition-all group"
                     >
                       <div className="h-24 w-20 rounded-xl overflow-hidden bg-neutral-100 shrink-0 border border-apple-border-light">
-                        <img src={history.result_image_url} alt="fit result" className="h-full w-full object-cover" />
+                        <img src={window.getMediaUrl(history.result_image_url)} alt="fit result" className="h-full w-full object-cover" />
                       </div>
                       
                       <div className="flex flex-col justify-between flex-1 py-1">
@@ -262,7 +262,7 @@ export default function Dashboard() {
                         
                         <div className="flex gap-3 justify-end items-center pt-2">
                           <a 
-                            href={history.result_image_url}
+                            href={window.getMediaUrl(history.result_image_url)}
                             download
                             className="p-1.5 rounded-full hover:bg-black/5 text-apple-text-secondary-light dark:text-apple-text-secondary-dark hover:text-apple-accent transition-colors"
                             title="Download PNG"
@@ -313,7 +313,7 @@ export default function Dashboard() {
                       className="p-4 rounded-2xl bg-white dark:bg-[#1b1b1c] border border-apple-border-light dark:border-apple-border-dark flex gap-4 hover:shadow-premium transition-all"
                     >
                       <div className="h-20 w-16 rounded-xl overflow-hidden bg-neutral-100 shrink-0 border border-apple-border-light">
-                        <img src={item.product?.image_url} alt="product" className="h-full w-full object-cover" />
+                        <img src={window.getMediaUrl(item.product?.image_url)} alt="product" className="h-full w-full object-cover" />
                       </div>
                       
                       <div className="flex flex-col justify-between flex-1 py-0.5">

@@ -1,0 +1,31 @@
+services:
+  # Backend Web Service
+  - type: web
+    name: udupu-backend
+    env: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --chdir backend "app:create_app()"
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: JWT_SECRET_KEY
+        value: select_a_secure_random_key_for_jwt_auth_production_token
+      - key: PYTHON_VERSION
+        value: 3.10.12
+
+  # Frontend Static Site
+  - type: web
+    name: udupu-frontend
+    env: static
+    buildCommand: cd frontend && npm install && npm run build
+    publishDir: frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: udupu-backend
+          property: host
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

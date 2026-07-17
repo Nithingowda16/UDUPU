@@ -462,7 +462,7 @@ export default function Recommendations() {
                   >
                     <div className="relative aspect-[4/5] bg-apple-bg-light dark:bg-black/20 overflow-hidden flex items-center justify-center">
                       <img
-                        src={prod.image_url}
+                        src={window.getMediaUrl(prod.image_url)}
                         alt={prod.name}
                         className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
                       />

@@ -134,7 +134,7 @@ export default function TryOn() {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
         setUserImagePath(res.data.user_image_path);
-        setUserImageUrl(res.data.user_image_url);
+        setUserImageUrl(window.getMediaUrl(res.data.user_image_url));
         setSkinAnalysis(res.data.skin_analysis || null);
         if (res.data.detection) {
           setFeedbackMsg('Snapshot detected!');
@@ -260,7 +260,7 @@ export default function TryOn() {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       setUserImagePath(res.data.user_image_path);
-      setUserImageUrl(res.data.user_image_url);
+      setUserImageUrl(window.getMediaUrl(res.data.user_image_url));
       setSkinAnalysis(res.data.skin_analysis || null);
 
       // Auto-set transform parameters if body detected
@@ -345,7 +345,7 @@ export default function TryOn() {
         background_preset: bgPreset
       });
 
-      setResultImageUrl(res.data.result_image_url);
+      setResultImageUrl(window.getMediaUrl(res.data.result_image_url));
       setFeedbackMsg('Fitting generated successfully!');
     } catch (err) {
       console.error(err);
@@ -579,7 +579,7 @@ export default function TryOn() {
                               }`}
                           >
                             <div className="flex items-center gap-2">
-                              <img src={p.image_url} alt="" className="h-6 w-6 rounded object-cover" />
+                              <img src={window.getMediaUrl(p.image_url)} alt="" className="h-6 w-6 rounded object-cover" />
                               <span className="truncate max-w-[140px]">{p.name}</span>
                             </div>
 
@@ -826,7 +826,7 @@ export default function TryOn() {
                     return (
                       <img
                         key={p.id}
-                        src={p.garment_url}
+                        src={window.getMediaUrl(p.garment_url)}
                         alt="Garment overlay layer"
                         onMouseDown={(e) => {
                           setActiveProductId(p.id);
